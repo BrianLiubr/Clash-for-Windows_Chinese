@@ -1,2 +1,23 @@
-/.vs
-/app/output
+# Node and build artifacts
+node_modules/
+dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.vscode/
+.idea/
+.DS_Store
+*.sw?
+
+# Testing
+coverage/
+
+# Env files
+.env
+.env.local
+.env.*.local
