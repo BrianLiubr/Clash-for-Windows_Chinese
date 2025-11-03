@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/demo-data.schema.json",
+  "title": "DemoData",
+  "type": "object",
+  "required": ["plainText", "annotations"],
+  "properties": {
+    "plainText": { "type": "string" },
+    "annotations": {
+      "type": "array",
+      "items": { "$ref": "./annotation-range.schema.json" }
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "score": { "type": "number" },
+        "rating": { "type": "string" },
+        "summary": { "type": "string" },
+        "perspectiveScore": {
+          "type": "object",
+          "additionalProperties": { "type": "number" }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}
