@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/annotation-range.schema.json",
+  "title": "AnnotationRange",
+  "type": "object",
+  "required": ["id", "start", "end", "type"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "start": { "type": "integer", "minimum": 0 },
+    "end": { "type": "integer", "exclusiveMinimum": 0 },
+    "type": { "type": "string", "enum": ["good", "typo", "sentence_issue"] },
+    "color": { "type": "string" },
+    "payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "comment": { "type": "string" },
+        "suggestion": { "type": "string" },
+        "original": { "type": "string" },
+        "corrected": { "type": "string" }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "$comment": "end must be greater than start; cannot express cross-field constraint with pure schema easily, validate in code."
+    }
+  ],
+  "additionalProperties": false
+}
